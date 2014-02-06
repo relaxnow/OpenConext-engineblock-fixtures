@@ -45,6 +45,12 @@ class ServiceRegistryFixture
         return $this;
     }
 
+    public function setNoConsent($entityId)
+    {
+        $this->data[$entityId]['NoConsent'] = true;
+        return $this;
+    }
+
     public function addSpsFromJsonExport($spsConfigExportUrl)
     {
         $this->addEntitiesFromJsonConfigExport($spsConfigExportUrl);
