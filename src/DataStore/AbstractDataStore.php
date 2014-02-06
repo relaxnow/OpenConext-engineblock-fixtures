@@ -6,19 +6,9 @@ abstract class AbstractDataStore
 {
     protected $filePath;
 
-    public function __construct($filePath, $rootDir = '')
+    public function __construct($filePath)
     {
-//        $filePath = $this->makeAbsolutePath($filePath, $rootDir);
         $this->setFilePath($filePath);
-    }
-
-    protected function makeAbsolutePath($filePath, $rootDir)
-    {
-        if ($filePath[0] === DIRECTORY_SEPARATOR) {
-            return $filePath;
-        }
-
-        return $rootDir . DIRECTORY_SEPARATOR . $filePath;
     }
 
     protected function setFilePath($filePath)
@@ -30,14 +20,15 @@ abstract class AbstractDataStore
 
         $directory = dirname($filePath);
         if (!file_exists($directory)) {
-            $createdDirectory = mkdir($directory, 0755, true);
+            $createdDirectory = mkdir($directory, 0777, true);
             if (!$createdDirectory) {
                 throw new \RuntimeException('Unable to create directory: ' . $directory);
             }
-        }
+    }
 
         if (!file_exists($filePath)) {
             $touched = touch($filePath);
+            chmod($filePath, 0666);
             if (!$touched) {
                 throw new \RuntimeException('Unable to create file: ' . $filePath);
             }

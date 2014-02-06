@@ -27,7 +27,7 @@ class IdFixture
      */
     public function shiftFrame()
     {
-        array_shift($this->frames);
+        return array_shift($this->frames);
     }
 
     /**
@@ -38,6 +38,7 @@ class IdFixture
     public function addFrame(IdFrame $frame)
     {
         $this->frames[] = $frame;
+        return $this;
     }
 
     /**
@@ -46,6 +47,7 @@ class IdFixture
     public function clear()
     {
         $this->frames = array();
+        return $this;
     }
 
     /**

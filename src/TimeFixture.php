@@ -26,6 +26,15 @@ class TimeFixture
         $this->time = $time;
     }
 
+    public function get()
+    {
+        if (!isset($this->time)) {
+            return time();
+        }
+
+        return (int) $this->time;
+    }
+
     public function set($time)
     {
         $this->time = (string) (int) $time;

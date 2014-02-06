@@ -17,6 +17,11 @@ class SuperGlobalsFixture
         $this->data = $this->fixture->load();
     }
 
+    public function getAll()
+    {
+        return $this->data;
+    }
+
     public function get($superGlobal)
     {
         return $this->data[$superGlobal];

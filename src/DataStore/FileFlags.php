@@ -6,19 +6,9 @@ class FileFlags
 {
     protected $dir;
 
-    public function __construct($dir, $rootDir = '')
+    public function __construct($dir)
     {
-//        $dir = $this->makeAbsolutePath($dir, $rootDir);
         $this->setDir($dir);
-    }
-
-    protected function makeAbsolutePath($filePath, $rootDir)
-    {
-        if ($filePath[0] === DIRECTORY_SEPARATOR) {
-            return $filePath;
-        }
-
-        return $rootDir . DIRECTORY_SEPARATOR . $filePath;
     }
 
     protected function setDir($dir)
