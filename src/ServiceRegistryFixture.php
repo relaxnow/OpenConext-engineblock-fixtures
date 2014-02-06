@@ -33,6 +33,7 @@ class ServiceRegistryFixture
         $this->data[$entityId] = array(
             'workflowState' => 'prodaccepted',
             'entityId'      => $entityId,
+            'AssertionConsumerService:0:Binding'  => \SAML2_Const::BINDING_HTTP_POST,
             'AssertionConsumerService:0:Location' => $acsLocation,
         );
         return $this;
