@@ -1,5 +1,5 @@
 {
-    "name": "openconext/engine-block-fixtures",
+    "name": "openconext/engineblock-fixtures",
     "description": "OpenConext Component for EngineBlock Fixtures",
     "license": "Apache-2.0",
     "type": "library",
