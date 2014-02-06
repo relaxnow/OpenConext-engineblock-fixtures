@@ -39,13 +39,29 @@ class ServiceRegistryFixture
         return $this;
     }
 
+    public function move($fromEntityId, $toEntityId)
+    {
+        $this->data[$toEntityId] = $this->data[$fromEntityId];
+        unset($this->data[$fromEntityId]);
+
+        $this->data[$toEntityId]['entityId'] = $toEntityId;
+
+        return $this;
+    }
+
     public function setEntitySsoLocation($entityId, $ssoLocation)
     {
         $this->data[$entityId]['SingleSignOnService:0:Location'] = $ssoLocation;
         return $this;
     }
 
-    public function setNoConsent($entityId)
+    public function setEntityAcsLocation($entityId, $acsLocation)
+    {
+        $this->data[$entityId]['SingleSignOnService:0:Location'] = $acsLocation;
+        return $this;
+    }
+
+    public function setEntityNoConsent($entityId)
     {
         $this->data[$entityId]['NoConsent'] = true;
         return $this;
