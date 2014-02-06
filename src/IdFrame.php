@@ -38,6 +38,7 @@ class IdFrame
     /**
      * @param $usage
      * @return mixed
+     * @throws \RuntimeException
      */
     public function get($usage)
     {
@@ -45,5 +46,14 @@ class IdFrame
             throw new \RuntimeException('Current frame has no id set for ' . $usage);
         }
         return $this->ids[$usage];
+    }
+
+    /**
+     * @param $usage
+     * @return bool
+     */
+    public function has($usage)
+    {
+        return isset($this->ids[$usage]);
     }
 }
