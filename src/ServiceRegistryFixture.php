@@ -57,7 +57,7 @@ class ServiceRegistryFixture
 
     public function setEntityAcsLocation($entityId, $acsLocation)
     {
-        $this->data[$entityId]['SingleSignOnService:0:Location'] = $acsLocation;
+        $this->data[$entityId]['AssertionConsumerService:0:Location'] = $acsLocation;
         return $this;
     }
 
