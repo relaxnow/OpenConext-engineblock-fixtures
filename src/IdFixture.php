@@ -27,6 +27,9 @@ class IdFixture
      */
     public function shiftFrame()
     {
+        if (empty($this->frames)) {
+            throw new \RuntimeException('No more IdFrames?');
+        }
         return array_shift($this->frames);
     }
 
