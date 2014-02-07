@@ -63,7 +63,7 @@ class ServiceRegistryFixture
 
     public function setEntityNoConsent($entityId)
     {
-        $this->data[$entityId]['NoConsent'] = true;
+        $this->data[$entityId]['coin:no_consent_required'] = true;
         return $this;
     }
 
