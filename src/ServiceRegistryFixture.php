@@ -42,10 +42,16 @@ class ServiceRegistryFixture
     public function move($fromEntityId, $toEntityId)
     {
         $this->data[$toEntityId] = $this->data[$fromEntityId];
-        unset($this->data[$fromEntityId]);
+        $this->remove($fromEntityId);
 
         $this->data[$toEntityId]['entityId'] = $toEntityId;
 
+        return $this;
+    }
+
+    public function remove($entityId)
+    {
+        unset($this->data[$entityId]);
         return $this;
     }
 
