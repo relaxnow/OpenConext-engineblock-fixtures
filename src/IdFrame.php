@@ -49,6 +49,14 @@ class IdFrame
     }
 
     /**
+     * @return array
+     */
+    public function getAll()
+    {
+        return $this->ids;
+    }
+
+    /**
      * @param $usage
      * @return bool
      */
