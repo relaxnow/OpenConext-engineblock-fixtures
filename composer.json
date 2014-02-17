@@ -1,0 +1,12 @@
+{
+    "name": "openconext/engineblock-fixtures",
+    "description": "OpenConext Component for EngineBlock Fixtures",
+    "license": "Apache-2.0",
+    "type": "library",
+    "autoload": {
+        "psr-4": { "OpenConext\\Component\\EngineBlockFixtures\\": "src/" }
+    },
+    "require": {
+        "php": ">=5.3.3"
+    }
+}
