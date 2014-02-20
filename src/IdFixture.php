@@ -10,7 +10,14 @@ use OpenConext\Component\EngineBlockFixtures\DataStore\AbstractDataStore;
  */
 class IdFixture
 {
+    const FRAME_REQUEST = 'request';
+    const FRAME_RESPONSE = 'response';
+
     protected $dataStore;
+
+    /**
+     * @var IdFrame[]
+     */
     protected $frames = array();
 
     /**
@@ -33,14 +40,27 @@ class IdFixture
         return array_shift($this->frames);
     }
 
+    public function hasFrame($frameName)
+    {
+        return isset($this->frames[$frameName]);
+    }
+
+    public function getFrame($frameName)
+    {
+        if (!isset($this->frames[$frameName])) {
+            throw new \RuntimeException("No frame with given name '$frameName'");
+        }
+        return $this->frames[$frameName];
+    }
+
     /**
      * Queue up another set of ids to use.
      *
      * @param IdFrame $frame
      */
-    public function addFrame(IdFrame $frame)
+    public function addFrame($frameName, IdFrame $frame)
     {
-        $this->frames[] = $frame;
+        $this->frames[$frameName] = $frame;
         return $this;
     }
 

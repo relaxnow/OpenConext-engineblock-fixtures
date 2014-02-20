@@ -31,7 +31,7 @@ class IdFrame
      */
     public function set($usage, $id)
     {
-        $this->ids[$usage] = $id;
+        $this->ids[$usage][] = $id;
         return $this;
     }
 
@@ -42,10 +42,11 @@ class IdFrame
      */
     public function get($usage)
     {
-        if (!isset($this->ids[$usage])) {
+        $id = array_shift($this->ids[$usage]);
+        if (!$id) {
             throw new \RuntimeException('Current frame has no id set for ' . $usage);
         }
-        return $this->ids[$usage];
+        return $id;
     }
 
     /**
