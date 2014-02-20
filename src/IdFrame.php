@@ -44,7 +44,9 @@ class IdFrame
     {
         $id = array_shift($this->ids[$usage]);
         if (!$id) {
-            throw new \RuntimeException('Current frame has no id set for ' . $usage);
+            throw new \RuntimeException(
+                'Current frame has no id set for ' . $usage . ', available ids: ' . print_r($this->ids, true)
+            );
         }
         return $id;
     }
